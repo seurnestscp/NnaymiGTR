@@ -6,7 +6,6 @@ def setup_logging(log_file, level, include_host=False):
         import socket
 
         hostname = socket.gethostname()
-        formatter = logging.Formatter(
             f"%(asctime)s |  {hostname} | %(levelname)s | %(message)s",
             datefmt="%Y-%m-%d,%H:%M:%S",
         )
@@ -21,7 +20,6 @@ def setup_logging(log_file, level, include_host=False):
         logger.setLevel(level)
 
     stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(formatter)
     logging.root.addHandler(stream_handler)
 
     if log_file:
